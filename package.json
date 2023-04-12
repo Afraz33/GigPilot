@@ -1,0 +1,23 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Afraz33/GigPilot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Afraz33/GigPilot/issues"
+  },
+  "homepage": "https://github.com/Afraz33/GigPilot#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
+  }
+}
