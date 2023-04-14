@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="/dist/output.css" rel="stylesheet">
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 <body >
 
@@ -67,7 +67,7 @@
     </p>
   </div>
   <div class="flex flex-col gap-2">
-     <button class="block rounded-md font-medium text-lg text-white px-20 py-2 bg-green-600 hover:bg-green-500 border-2   border-green-500 ...">Sign up for free</button>
+     <button  target="_blank" class="block rounded-md font-medium text-lg text-white px-20 py-2 bg-green-600 hover:bg-green-500 border-2   border-green-500 ... "><a href="userSignup/userSignup.html">Sign up for free</a></button>
      <button class="underline underline-offset-2 ... inline-block mx-auto  hover:text-green-400 text-black  hover:bg-white   hover:text-black  ...">Already have an account? Log in</button>
   </div>
 </div>
@@ -208,7 +208,9 @@
       e.name = e.name === 'menu' ? 'close' : 'menu'
       navLinks.classList.toggle('top-[9%]')
   }
-</script>
 
+
+</script>
+<script src="script.js"></script>
 </body>
 </html>
