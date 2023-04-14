@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Afraz33/GigPilot#readme",
   "devDependencies": {
     "tailwindcss": "^3.3.1"
+  },
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4"
   }
 }
