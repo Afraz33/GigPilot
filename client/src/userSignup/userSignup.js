@@ -66,7 +66,7 @@
 
 
 
-
+//submit form
 document.getElementById("form").addEventListener("submit", function(e){
     
     e.preventDefault();
@@ -134,9 +134,17 @@ document.getElementById("form").addEventListener("submit", function(e){
        let emailField = document.getElementById("email");
          emailField.setAttribute("placeholder", "johndoe@example.com");
          emailField.style.border = "1px solid black";
-         
+         alert(`${email} is successfully registered.`);
         console.log(data)
     }).catch(err=>{
         console.log(err)
     })
 });
+
+
+//click on cancel button
+document.getElementById("cancel").addEventListener("click", function(e){
+    
+    document.getElementById("form").reset();
+    
+})
