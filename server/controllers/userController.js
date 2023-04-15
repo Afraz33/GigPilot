@@ -13,11 +13,17 @@ let signup = (req , res)=>{
         contact,
         
     })
-    student.save().then((student)=>{
+
+      students.findOne({email:email}).then((user)=>{
+        if(user){
+        res.status(300).json({"Message":"User Already Exists"})}
+        else{    
+        student.save().then((student)=>{
         res.status(200).json({"Message":"User Created" , student:student})
     }).catch(err=>{
         res.status(500).json({"Message":"User Not Created" , err:err})
     })
+}})
 }
 
 
