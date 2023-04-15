@@ -4,13 +4,14 @@ const jwt = require("jsonwebtoken")
 
 
 let signup = (req , res)=>{
-    let {name , password ,email, contact  } = req.body;
+    let {name , password ,email, contact,role  } = req.body;
 
     let student = new studentModel({
         name,
         password,
         email,
         contact,
+        role,
         
     })
 

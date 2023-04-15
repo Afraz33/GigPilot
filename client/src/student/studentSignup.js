@@ -75,7 +75,9 @@ document.getElementById("form").addEventListener("submit", function(e){
     let password = document.getElementById("password").value;
     let contact = document.getElementById("contact").value;
     let confirmpassword = document.getElementById("confirm-password").value;
+    let role = "student";
     let formResetFlag = true;
+    
     if(password != confirmpassword){
         let confirmpassword = document.getElementById("confirm-password");
         console.log(confirmpassword)
@@ -96,8 +98,9 @@ document.getElementById("form").addEventListener("submit", function(e){
         email,
         password,
         contact,
+        role,
     }
-
+    
     fetch("http://localhost:3000/api/users/signup" , {
         method:"POST",
         headers:{
@@ -135,6 +138,7 @@ document.getElementById("form").addEventListener("submit", function(e){
          emailField.setAttribute("placeholder", "johndoe@example.com");
          emailField.style.border = "1px solid black";
          alert(`${email} is successfully registered.`);
+         
         console.log(data)
     }).catch(err=>{
         console.log(err)

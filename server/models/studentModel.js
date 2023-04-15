@@ -16,9 +16,12 @@ const studentSchema = new Schema({
     },
     contact: {
         type: String,
-        default: 'user',    
+        required: true,    
     },
-    
+    role: {
+        type: String,
+        required: true,
+    },
 });
 
 
