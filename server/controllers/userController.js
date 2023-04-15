@@ -30,10 +30,11 @@ let signup = (req , res)=>{
 
 
 let login = (req , res)=>{
-    let {name , password} = req.body;
-
-    students.findOne({name:name}).then((user)=>{
-        if(user.password == password){
+    let {email , password} = req.body;
+     
+    students.findOne({email:email}).then((user)=>{
+        
+       if(user && user.password == password){
             let token = jwt.sign({
                 id:user._id,
                 role: user.type} , 
@@ -42,7 +43,8 @@ let login = (req , res)=>{
                 }
                 )
             res.status(200).json({"Message":"Login Successfull" , user:user, token})
-        }else{
+        }
+        else{
             res.status(500).json({"Message":"Login Failed"})
         }
     }
