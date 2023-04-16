@@ -59,7 +59,7 @@ document.getElementById("login-form").addEventListener("submit", function(e){
         password,
         
     }
-    fetch("http://localhost:3000/api/users/login" , {
+    fetch("http://localhost:3000/GigPilot/login" , {
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -73,10 +73,20 @@ document.getElementById("login-form").addEventListener("submit", function(e){
             throw new Error("Login failed");
         }
     }).then(data => {
+       if(data.user.role === "Employer") {
         let errorMsg = document.getElementById("error");
             errorMsg.innerHTML = "Login Successful!";
             errorMsg.style.color = "green";
-        console.log(data);
+            // console.log(`This is token ${data.token}`);
+            localStorage.setItem("token", data.token);
+             window.location.href = "LandingPage/LandingPage.html";
+       }
+         else {
+            let errorMsg = document.getElementById("error");
+            errorMsg.innerHTML = "*wrong email or password";
+            errorMsg.style.color = "red";
+        }
+        
     }).catch(err => {
         if ( err) {
             let errorMsg = document.getElementById("error");

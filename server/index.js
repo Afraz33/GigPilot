@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({extended:false}))
 
 // app.use('/api/articles',require('./routes/articleRoutes'))
- app.use('/api/users',require('./routes/userRoutes'))
+ app.use('/GigPilot',require('./routes/userRoutes'))
  
 
 app.listen(port, ()=>{ console.log(`App listening on port ${port}`)

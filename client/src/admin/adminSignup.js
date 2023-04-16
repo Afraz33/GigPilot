@@ -41,7 +41,7 @@ document.getElementById("form").addEventListener("submit", function(e){
         role,
     }
     
-    fetch("http://localhost:3000/api/users/signup" , {
+    fetch("http://localhost:3000/GigPilot/signup" , {
         method:"POST",
         headers:{
             "Content-Type":"application/json"
