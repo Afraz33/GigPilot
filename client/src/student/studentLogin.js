@@ -73,10 +73,12 @@ document.getElementById("login-form").addEventListener("submit", function(e){
             throw new Error("Login failed");
         }
     }).then(data => {
-        if(data.user.role === "Student") {
+        if(data.user.role === "student") {
             let errorMsg = document.getElementById("error");
                 errorMsg.innerHTML = "Login Successful!";
                 errorMsg.style.color = "green";
+                console.log(`This is user ${data.token}`);
+                localStorage.setItem("token", data.token);
                  window.location.href = "LandingPage/LandingPage.html";
            }
              else {

@@ -37,7 +37,8 @@ let login = (req , res)=>{
        if(user && user.password == password){
             let token = jwt.sign({
                 id:user._id,
-                role: user.role} , 
+                role: user.role,
+                name:user.name,} , 
                 process.env.SECRET_KEY, {
                     expiresIn: "24h"
                 }
@@ -59,8 +60,9 @@ let DecodeUser = (req , res , next)=>{
      
     jwt.verify(token , process.env.SECRET_KEY , (err , decoded)=>{
         if(!err){
-            req.decoded = decoded;
             
+            req.decoded = decoded;
+            console.log(req.decoded)
             next();
         }else{
             res.status(403).json({token:token, message:"Not Authorized"})

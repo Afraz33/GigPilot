@@ -77,7 +77,7 @@ document.getElementById("login-form").addEventListener("submit", function(e){
         let errorMsg = document.getElementById("error");
             errorMsg.innerHTML = "Login Successful!";
             errorMsg.style.color = "green";
-            // console.log(`This is token ${data.token}`);
+             console.log(`This is user ${data.token}`);
             localStorage.setItem("token", data.token);
              window.location.href = "LandingPage/LandingPage.html";
        }

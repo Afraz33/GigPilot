@@ -1,3 +1,5 @@
+
+
 document.getElementById('post-job').addEventListener('click', () => {
    
     let token = localStorage.getItem("token");
@@ -28,10 +30,15 @@ document.getElementById('post-job').addEventListener('click', () => {
 });
 
 
-document.getElementById('view-dev').addEventListener('click', () => {
-    window.location.href = "https://www.google.com";
+
+document.getElementById('view-applicants').addEventListener('click', () => {
+    window.location.href = "../errorPage.html";
 });
 
-document.getElementById('view-applications').addEventListener('click', () => {
-    window.location.href = "https://www.google.com";
+
+
+
+document.getElementById('view-dev').addEventListener('click', () => {
+    
+    window.location.href = "../errorPage.html";
 });
