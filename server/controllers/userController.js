@@ -62,7 +62,7 @@ let DecodeUser = (req , res , next)=>{
         if(!err){
             
             req.decoded = decoded;
-            console.log(req.decoded)
+            
             next();
         }else{
             res.status(403).json({token:token, message:"Not Authorized"})

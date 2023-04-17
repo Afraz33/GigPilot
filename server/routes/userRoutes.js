@@ -14,4 +14,7 @@ userRoutes.post("/viewJobForm" , DecodeUser , CheckIfEmployer, (req , res)=>{
 
 userRoutes.post("/postJob" , DecodeUser , CheckIfEmployer, postJob)
 
+userRoutes.post("/getName" , DecodeUser , (req , res)=>{
+    res.status(200).json({name:req.decoded.name})
+})
 module.exports = userRoutes;
