@@ -14,8 +14,7 @@ const jobs = require('../models/jobModel')
 // @route POST /GigPilot/postJob
 // @access Private
 const postJob = asyncHandler (async(req, res)=>{
-    console.log(req.decoded.name)
-    console.log(req.body.description)
+    
     if(!req.decoded.name || !req.body.jobTitle || !req.body.description || !req.body.jobType || !req.decoded.id){
         res.status(400)
         throw new Error('Please add a text field')
@@ -33,5 +32,13 @@ const postJob = asyncHandler (async(req, res)=>{
    
 })
 
+const getJobs = asyncHandler (async(req, res)=>{
+    const allJobs = await jobs.find()
+    req.jobs = allJobs  
+    res.status(200)
+    .json({"message":"These are jobs", jobs:req.jobs})
+    
+});
 
-module.exports = {postJob}
+
+module.exports = {postJob,getJobs}

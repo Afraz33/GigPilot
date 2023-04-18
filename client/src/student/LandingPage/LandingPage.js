@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 });
 
-document.getElementById('post-job').addEventListener('click', () => {
+document.getElementById('view-jobs').addEventListener('click', () => {
    
     let token = localStorage.getItem("token");
 

@@ -81,9 +81,20 @@ let CheckIfEmployer = (req , res , next)=>{
 }
 
 
+let CheckIfStudent = (req , res , next)=>{
+    
+    if(req.decoded.role == "student"){
+        next();
+    }else{
+        res.status(403).json({"Message":"Not Authorized as Student"})
+    }
+}
+
+
 module.exports = {
     signup,
     login ,
     DecodeUser,
-    CheckIfEmployer
+    CheckIfEmployer,
+    CheckIfStudent
 }
