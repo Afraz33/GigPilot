@@ -38,7 +38,8 @@ let login = (req , res)=>{
             let token = jwt.sign({
                 id:user._id,
                 role: user.role,
-                name:user.name,} , 
+                name:user.name,
+                email:user.email,} , 
                 process.env.SECRET_KEY, {
                     expiresIn: "24h"
                 }

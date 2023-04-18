@@ -19,13 +19,9 @@ userRoutes.post("/viewJobs" , DecodeUser , CheckIfStudent, (req , res)=>{
 userRoutes.post("/postJob" , DecodeUser , CheckIfEmployer, postJob)
 
 userRoutes.post("/getName" , DecodeUser , (req , res)=>{
-    res.status(200).json({name:req.decoded.name})
+    res.status(200).json({name:req.decoded.name,email:req.decoded.email,id:req.decoded.id})
 })
 
 
-userRoutes.post("/getJobs" , DecodeUser , CheckIfStudent, getJobs, (req , res)=>{
-   
-   res.status(200)
-   .json({"message":"These are jobs", jobs:req.jobs})
-})
+userRoutes.post("/getJobs" , DecodeUser , CheckIfStudent, getJobs)
 module.exports = userRoutes;

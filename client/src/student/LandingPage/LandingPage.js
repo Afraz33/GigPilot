@@ -33,7 +33,7 @@ document.getElementById('view-jobs').addEventListener('click', () => {
     }
    
     //fetch request
-    fetch("http://localhost:3000/GigPilot/viewJobForm", {
+    fetch("http://localhost:3000/GigPilot/viewJobs", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -41,10 +41,19 @@ document.getElementById('view-jobs').addEventListener('click', () => {
         body:JSON.stringify(data)
     })
         .then(res => {
-            if(res.status==200){
-                window.location.href = "../jobForm/jobForm.html";
-            }
+
+               if(res.status == 200){
+                 window.location.href = "../viewJobs/viewJobs.html";
+                return res.json(); 
+                }
+            
+          
+            
            
+            })
+        .then(data => {
+            console.log('Success:', data);
+            // window.location.href = "../viewJobs/viewJobs.html";
         })
         
         .catch((error) => {

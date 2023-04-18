@@ -32,11 +32,12 @@ const postJob = asyncHandler (async(req, res)=>{
    
 })
 
-const getJobs = asyncHandler (async(req, res)=>{
+const getJobs = asyncHandler (async(req, res,next)=>{
     const allJobs = await jobs.find()
-    req.jobs = allJobs  
-    res.status(200)
-    .json({"message":"These are jobs", jobs:req.jobs})
+       
+    res.status(200).json(allJobs)
+    
+   
     
 });
 
