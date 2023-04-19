@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             
             document.getElementById('name').value = data.name;
             document.getElementById('email').value = data.email;
-            document.getElementById('userid').value = data.id;
+            document.getElementById('userId').value = data.id;
             console.log('Success:', data);
         })
         
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // });
 
 
-// document.addEventListener("DOMContentLoaded", function(event) { 
+// view all jobs on button click
     document.getElementById('alljobs').addEventListener('click', () => {
         document.getElementById('job-container').innerHTML = "";
     let token = localStorage.getItem("token");
@@ -139,7 +139,66 @@ applyBtns.forEach(applyBtn => {
         });
 })
 
+//submitting resume
+const form = document.getElementById('form');
+document.getElementById('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+   
+   const formData = new FormData();
+   
+    
+   
+   let name = document.getElementById('name').value;
+    formData.append('applicantName', name);
 
+   let email = document.getElementById('email').value;
+    formData.append('applicantEmail', email);
+
+    let jobId= document.getElementById('jobId').value;
+    formData.append('jobId', jobId);
+
+    let userId = document.getElementById('userId').value;
+    formData.append('userId', userId);
+    
+    let coverLetter = document.getElementById('coverLetter').value;
+    formData.append('coverLetter', coverLetter);
+
+    let resume = document.getElementById('resume').files[0];
+    formData.append('resume', resume)
+   console.log(formData.get('resume'));
+   console.log(formData.get('coverLetter'));
+    console.log(formData.get('userId'));
+    console.log(formData.get('jobId'));
+    console.log(formData.get('applicantEmail'));
+    console.log(formData.get('applicantName'));
+
+   
+   let token = localStorage.getItem("token");
+   formData.append('token', token);
+//    let email = document.getElementById('email').value;
+//    console.log(email);
+     
+    fetch("http://localhost:3000/GigPilot/applyJob", {
+        method: 'POST',
+        
+          body: formData
+             
+        
+        
+        
+    })
+    .then(res => {
+        
+        return res.json();
+       
+    })
+    .then(data => {
+        alert(data.newApplication.applicantName+ "'s  application has been submitted successfully!" );
+        console.log('Success:', data);
+    })  
+
+
+    });
 
 
 //whenever applybtn is clicked the jobid of that particular div is get

@@ -1,6 +1,6 @@
 const {signup, login,DecodeUser,CheckIfEmployer, CheckIfStudent} = require("../controllers/userController");
 const{postJob,getJobs,getSpecificJob} = require("../controllers/jobController");
-
+const {setApplication, upload} = require("../controllers/applicationController");
 const userRoutes = require("express").Router();
 
 
@@ -26,4 +26,8 @@ userRoutes.post("/getName" , DecodeUser , (req , res)=>{
 userRoutes.post("/getJobs" , DecodeUser , CheckIfStudent, getJobs)
 
 userRoutes.post("/searchJobs" , DecodeUser , CheckIfStudent, getSpecificJob)
+
+userRoutes.post('/applyJob' , upload.array('resume') , setApplication );
+
+
 module.exports = userRoutes;
