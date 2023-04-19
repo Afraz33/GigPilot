@@ -41,5 +41,14 @@ const getJobs = asyncHandler (async(req, res,next)=>{
     
 });
 
+const getSpecificJob = asyncHandler (async(req, res)=>{
+    
+    const job = await jobs.find({jobTitle:req.body.jobTitle})
+       
+    res.status(200).json(job)
+    
+   
+    
+});
 
-module.exports = {postJob,getJobs}
+module.exports = {postJob,getJobs,getSpecificJob}
