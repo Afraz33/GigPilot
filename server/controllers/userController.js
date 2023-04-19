@@ -3,6 +3,9 @@ const users = require("../models/userModel")
 const jwt = require("jsonwebtoken")
 
 
+// @desc Set User
+// @route POST /GigPilot/signup
+// @access Public
 let signup = (req , res)=>{
     let {name , password ,email, contact,role  } = req.body;
 
@@ -28,7 +31,9 @@ let signup = (req , res)=>{
 }
 
 
-
+// @desc Login User
+// @route POST /GigPilot/login
+// @access Login
 let login = (req , res)=>{
     let {email , password} = req.body;
      
@@ -56,6 +61,8 @@ let login = (req , res)=>{
     )
 }
 
+
+// @desc Middleware to Decode User i.e. student or employer
 let DecodeUser = (req , res , next)=>{
     let token = req.body.token;
      
@@ -72,6 +79,7 @@ let DecodeUser = (req , res , next)=>{
     )
 }
 
+// @desc middleware to Check if user is employer
 let CheckIfEmployer = (req , res , next)=>{
     
     if(req.decoded.role == "Employer"){
@@ -82,6 +90,7 @@ let CheckIfEmployer = (req , res , next)=>{
 }
 
 
+// @desc Middleware to Check if user is student
 let CheckIfStudent = (req , res , next)=>{
     
     if(req.decoded.role == "student"){

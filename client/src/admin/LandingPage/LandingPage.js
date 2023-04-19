@@ -1,3 +1,4 @@
+//upon document load, get the name of the employer and display it on the page
 document.addEventListener("DOMContentLoaded", function(event) { 
     let token = localStorage.getItem("token");
     let data = {
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 });
 
+
+//Posting a job
 document.getElementById('post-job').addEventListener('click', () => {
    
     let token = localStorage.getItem("token");
@@ -54,14 +57,14 @@ document.getElementById('post-job').addEventListener('click', () => {
 });
 
 
-
+//view applicants
 document.getElementById('view-applicants').addEventListener('click', () => {
     window.location.href = "../../errorPage.html";
 });
 
 
 
-
+//view developers
 document.getElementById('view-dev').addEventListener('click', () => {
     
     window.location.href = "../../errorPage.html";

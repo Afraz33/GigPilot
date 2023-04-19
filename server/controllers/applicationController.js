@@ -30,8 +30,12 @@ const upload = multer({
     limits:1024*1024*10
 })
 
+
+// @desc Set Applications
+// @route POST /GigPilot/setApplication
+// @access Private
 const setApplication = async (req, res) => {
-    //   console.log(req.body);
+    
     try {
         const { applicantName, applicantEmail, userId, jobId, coverLetter } = req.body;
        

@@ -1,3 +1,4 @@
+//Upon loading the page, the student's name is displayed on the page
 document.addEventListener("DOMContentLoaded", function(event) { 
     let token = localStorage.getItem("token");
     let data = {
@@ -32,21 +33,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-// document.getElementById('job-div').addEventListener('click', () => {
-//     const jobDiv = document.getElementById('job-div');
-//     if (!jobDiv.classList.contains('border-green-500')) {
-//         jobDiv.classList.add('border-green-500');
-//     } else {
-//         jobDiv.classList.remove('border-green-500');
-//     }
-// });
-
-// document.addEventListener('click', (event) => {
-//     const jobDiv = document.getElementById('job-div');
-//     if (event.target !== jobDiv) {
-//         jobDiv.classList.remove('border-green-500');
-//     }
-// });
 
 
 // view all jobs on button click

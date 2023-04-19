@@ -1,3 +1,4 @@
+//Upon loading the page, the student's name is displayed on the page
 document.addEventListener("DOMContentLoaded", function(event) { 
     let token = localStorage.getItem("token");
     let data = {
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
 });
 
+
+//Viewing Jobs
 document.getElementById('view-jobs').addEventListener('click', () => {
    
     let token = localStorage.getItem("token");

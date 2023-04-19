@@ -1,3 +1,4 @@
+//Post Job Form
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     let token = localStorage.getItem("token");

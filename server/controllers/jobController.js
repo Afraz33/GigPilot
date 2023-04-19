@@ -2,15 +2,9 @@ const asyncHandler = require('express-async-handler')
 
 const jobs = require('../models/jobModel')
 
-// @desc Get articles
-// @route GET /api/articles
-// @access Private
-// const getArticles = asyncHandler (async (req, res)=>{
-//     const articles = await Article.find()
-//     res.status(200).json(articles)
-// })
 
-// @desc Set articles
+
+// @desc Set Jobs
 // @route POST /GigPilot/postJob
 // @access Private
 const postJob = asyncHandler (async(req, res)=>{
@@ -32,6 +26,9 @@ const postJob = asyncHandler (async(req, res)=>{
    
 })
 
+// @desc get Jobs
+// @route POST /GigPilot/getJobs
+// @access Private
 const getJobs = asyncHandler (async(req, res,next)=>{
     const allJobs = await jobs.find()
        
@@ -41,6 +38,10 @@ const getJobs = asyncHandler (async(req, res,next)=>{
     
 });
 
+
+// @desc get specific Jobs
+// @route POST /GigPilot/searchJob
+// @access Private
 const getSpecificJob = asyncHandler (async(req, res)=>{
     
     const job = await jobs.find({jobTitle:req.body.jobTitle})
